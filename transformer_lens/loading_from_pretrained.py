@@ -255,6 +255,9 @@ OFFICIAL_MODEL_NAMES = [
     "google-t5/t5-base",
     "google-t5/t5-large",
     "ai-forever/mGPT",
+    "allenai/Llama-3.1-Tulu-3-8B-SFT",
+    "allenai/Llama-3.1-Tulu-3-8B-DPO",
+    "allenai/Llama-3.1-Tulu-3-8B",
 ]
 """Official model names for models on HuggingFace."""
 
@@ -685,6 +688,9 @@ MODEL_ALIASES = {
     "google-t5/t5-base": ["t5-base"],
     "google-t5/t5-large": ["t5-large"],
     "ai-forever/mGPT": ["mGPT"],
+    "allenai/Llama-3.1-Tulu-3-8B-SFT": ["llama3.1-tulu3-8b-sft"],
+    "allenai/Llama-3.1-Tulu-3-8B-DPO": ["llama3.1-tulu3-8b-dpo"],
+    "allenai/Llama-3.1-Tulu-3-8B": ["llama3.1-tulu3-8b"],
 }
 """Model aliases for models on HuggingFace."""
 
@@ -996,7 +1002,7 @@ def convert_hf_model_config(model_name: str, **kwargs):
             "NTK_by_parts_high_freq_factor": 4.0,
             "NTK_by_parts_factor": 8.0,
         }
-    elif "Llama-3.1-8B" in official_model_name:
+    elif "Llama-3.1-8B" in official_model_name or "Llama-3.1-Tulu-3-8B" in official_model_name:
         cfg_dict = {
             "d_model": 4096,
             "d_head": 128,
